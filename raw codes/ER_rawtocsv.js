@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 function extractStringValues(rawData) {
     // Split the raw data by newline characters to process each line
     const lines = rawData.split('\n');
@@ -20,55 +22,21 @@ function extractStringValues(rawData) {
     return values.join(', ');
 }
 
-// Example usage:
-const rawData = `
-142
-: 
-"bhavyas_024"
-143
-: 
-"Following"
-144
-: 
-"ayan____181"
-145
-: 
-"Following"
-146
-: 
-"rustydozen"
-147
-: 
-"Following"
-148
-: 
-"_iam_nr_"
-149
-: 
-"Following"
-"Follow"
-66
-: 
-"riley.xik"
-67
-: 
-"Follow"
-68
-: 
-"wheelwulfenite"
-69
-: 
-"Follow"
-70
-: 
-"soham0798"
-71
-: 
-"aacchhall"
-72
-: 
-"amarjeettuti"
-73`;
+// Read data from the text file
+fs.readFile('ER.txt', 'utf8', (err, rawData) => {
+    if (err) {
+        console.error('Error reading file:', err);
+        return;
+    }
+    const result = extractStringValues(rawData);
+    console.log(result); // Output the result to the console
 
-const result = extractStringValues(rawData);
-console.log(result); // Output: bhavyas_024, ayan____181, rustydozen, _iam_nr_, riley.xik, wheelwulfenite, soham0798, aacchhall, amarjeettuti
+    // Save the result to a new text file
+    fs.writeFile('ER_csv.txt', result, (err) => {
+        if (err) {
+            console.error('Error writing file:', err);
+        } else {
+            console.log('Extracted values have been saved to output.txt');
+        }
+    });
+});
