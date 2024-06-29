@@ -12,10 +12,62 @@
 
     <div class="navbar">INSTAFICATION</div>
 
+    <div class="copyit">
+
+        <div class="copy" id="ER-copy">
+            
+            <div class="code-container">
+                <pre>
+                    <code id="code-snippet">
+function extractUsernames() {
+    const usernames = [];
+    const elements = document.querySelectorAll('._ap3a, ._aaco, ._aacw, ._aacx, ._aad7, ._aade');
+    elements.forEach(element => {
+        const username = element.textContent.trim(); 
+        usernames.push(username);
+    });
+    return usernames;
+}
+const followersUsernames = extractUsernames();
+console.log(followersUsernames);                        
+                    </code>
+                </pre>
+                <button class="copy-button" onclick="copyCode()">Copy</button>
+            </div>
+            <div class="texts">Code-snippet to paste in console</div>
+
+        </div>
+        
+        <!-- <div class="copy" id="IN-copy">
+            <div class="texts">Paste Your Raw followings Data</div>
+            
+            <div class="code-container">
+                <pre>
+                    <code id="code-snippet">
+function extractUsernames() {
+    const usernames = [];
+    const elements = document.querySelectorAll('._ap3a, ._aaco, ._aacw, ._aacx, ._aad7, ._aade');
+    elements.forEach(element => {
+        const username = element.textContent.trim();
+        usernames.push(username);
+    });
+    return usernames;
+}
+const followersUsernames = extractUsernames();
+console.log(followersUsernames);    
+                    </code>
+                </pre>
+                <button class="copy-button" onclick="copyCode()">Copy</button>
+            </div>
+
+        </div> -->
+
+    </div>
+
     <form id="input-form">
 
         <div class="textareaMain" id="input-form">
-            
+
             <div class="follow">
                 <textarea id="followers-text" class="textarea is-danger" rows="10" placeholder="">
                 </textarea>
@@ -26,13 +78,13 @@
                 </textarea>
                 <div class="texts">Paste Your Raw followings Data</div>
             </div>
-            
+
         </div>
         <div class="buttonarea">
             <button type="submit" class="btn">Check Unfollowers</button>
         </div>
     </form>
-        
+
     <div id="result"></div>
 
     <script src="script.js"></script>
@@ -53,3 +105,6 @@
         <div id="result"></div>
     <script src="all.js"></script>
  -->
+
+
+ 
