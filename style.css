@@ -8,7 +8,7 @@
 
 body {
     /* height: 1vh; */
-    height: 50em;
+    /* height: 50em; */
     /* background-image: url("./media/background/photo-1554177255-61502b352de3.avif"); */
     background-repeat: no-repeat;
     background-size: contain;
@@ -38,11 +38,64 @@ textarea {
     text-align: center;
 
     background-color: rgb(245 245 245);
-    
+
     /* background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px); */
 
+}
+
+
+.copyit {
+    /* background-color: antiquewhite; */
+    /* height: 30em; */
+    /* margin: 1.3em 0.8em; */
+    /* padding: 0.1em 0.2em; */
+    border-radius: 0.8em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1em;
+    padding: 1em;
+}
+
+.code-container {
+    position: relative;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    /* padding: 15px; */
+    /* margin-bottom: 10px; */
+    padding: 1em;
+}
+
+pre {
+    margin: 0;
+}
+
+#code-snippet{
+    display: flex;
+    text-align: left;
+    overflow: auto;
+    width: 100%;
+}
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .textareaMain {
@@ -79,7 +132,7 @@ textarea {
 
 #followers-text {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     /* background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px); */
@@ -90,7 +143,7 @@ textarea {
 
 #followings-text {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     /* background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px); */
@@ -122,7 +175,7 @@ textarea {
     text-decoration: none;
     width: 30em;
     height: 100%;
-    
+
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
@@ -141,21 +194,24 @@ textarea {
     transition: all 0.3s ease-in-out;
 }
 
-.btn:hover{
+.btn:hover {
     color: rgb(255, 31, 31);
     border-bottom: 5px solid rgb(255, 31, 31);
 }
 
-#result{
+#result {
     height: auto;
     /* background-color: orange; */
     margin: 3em;
-    /* padding: 1em; */
+    padding: 2em;
     border-radius: 0.8em;
-    
+
     background-color: rgb(245 245 245);
 
     /* background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px); */
+
+    word-spacing: 3em;
+    line-height: 3em;
 }
