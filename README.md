@@ -4,5 +4,5 @@ https://prathamreet.github.io/instafication/
 
 +all raw codess 
 +webapp
--console src
++console src
 -favicon
