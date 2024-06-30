@@ -19,6 +19,112 @@ body {
 
 }
 
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar {
+    margin: 0.2em 0.2em;
+    padding: 0.1em 0.2em;
+    font-size: 3em;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border-radius: 0.175em;
+    background-color: rgb(245, 245, 245);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.title{
+    cursor: pointer;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links {
+    /* background-color: orange; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    display: flex;
+    font-size: 0.8em;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .title {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.toggle-theme-btn,
+.github-btn {
+    margin: 0.5em;
+    padding: 0.5em;
+    font-size: 0.51em;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.15em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #d4d4d4;
+}
+
+body.dark-mode .code-container{
+    background-color: transparent;
+}
+
+body.dark-mode .toggle-theme-btn,
+body.dark-mode .github-btn {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.toggle-theme-btn:hover,
+.github-btn:hover {
+    opacity: 0.8;
+}
+
+/* Ensure other components adapt to dark mode */
+body.dark-mode .copyit,
+body.dark-mode .texts,
+body.dark-mode #code-snippet,
+body.dark-mode .textareaMain,
+body.dark-mode #result,
+body.dark-mode .btn {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode #followers-text,
+body.dark-mode #followings-text{
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 2px solid rgb(196, 196, 196);
+}
+
+body.dark-mode #result a{
+    color: rgb(204, 147, 204);
+}
+
+
+body.dark-mode .copy-button,
+body.dark-mode .toggle-theme-btn,
+body.dark-mode .github-btn{
+    background-color: #333333;
+    color: #ffffff;
+}
+
+
 textarea {
     border: none;
     outline: none;
@@ -80,12 +186,13 @@ pre {
     margin: 0;
 }
 
-#code-snippet{
+#code-snippet {
     display: flex;
     text-align: left;
     overflow: auto;
     width: 100%;
 }
+
 .copy-button {
     position: absolute;
     top: 10px;
