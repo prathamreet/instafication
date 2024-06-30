@@ -11,12 +11,28 @@
 
 <body>
 
-    <div class="navbar">INSTAFICATION</div>
+    <div class="navbar">
+        <!-- <div class="title">
+            INSTAFICATION
+        </div> -->
+
+        <a href="index.html" class="title">INSTAFICATION</a>
+
+        <div class="nav-links">
+            <button class="toggle-theme-btn" onclick="toggleTheme()">
+                Theme
+            </button>
+            <button class="github-btn" onclick="redirectToGithub()">
+                GitHub
+            </button>
+        </div>
+
+    </div>
 
     <div class="copyit">
 
         <div class="copy" id="ER-copy">
-            
+
             <div class="code-container">
                 <pre>
                     <code id="code-snippet">
@@ -38,7 +54,7 @@ console.log(followersUsernames);
             <div class="texts">Code-snippet to paste in console</div>
 
         </div>
-        
+
         <!-- <div class="copy" id="IN-copy">
             <div class="texts">Paste Your Raw followings Data</div>
             
@@ -88,7 +104,7 @@ console.log(followersUsernames);
 
     <div id="result"></div>
 
-    <script src="script_withlink.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
@@ -106,6 +122,3 @@ console.log(followersUsernames);
         <div id="result"></div>
     <script src="all.js"></script>
  -->
-
-
- 

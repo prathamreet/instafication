@@ -52,3 +52,12 @@ function copyCode() {
     // Optionally, show a message or change button text to indicate success
     alert("Code copied to clipboard!");
 }
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+}
+
+function redirectToGithub() {
+    // window.location.href = 'https://github.com/prathamreet/instafication';  // Replace with your GitHub repo URL
+    window.open('https://github.com/prathamreet/instafication', '_blank');
+}
