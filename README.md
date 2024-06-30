@@ -1,8 +1,8 @@
 <img src="https://capsule-render.vercel.app/api?type=soft&color=gradient&height=10&section=header" width="1080" align="center"/>
 
-# INSTAFICATION => Check who is not follwing you back!
+# INSTAFICATION - Check who is not following you back!
 
- link = https://prathamreet.github.io/instafication/
+ _Github deployment webpage link = [INSTAFICATION](https://prathamreet.github.io/instafication/)_
 
 <img src="https://capsule-render.vercel.app/api?type=soft&color=gradient&height=10&section=footer" width="1080" align="center"/>
 
@@ -58,6 +58,10 @@
 <b>
 
 ![image](https://github.com/prathamreet/instafication/blob/main/media/tutorialScreenShots/step7.png?raw=true)
+
+<br>
+
+- ~~If you are Reciprocal follower then just click on the usernames listed and unfollow them!!~~ 😉
 
 <br>
 
