@@ -5,7 +5,7 @@
   ### Find Out Who's Not Following You Back on Instagram
   
   <p>
-    <a href="https://prathamreet.github.io/instafication/" target="_blank"><strong>🌐 Live Demo</strong></a>
+    <a href="https://instafication.netlify.app" target="_blank"><strong>🌐 Live Demo</strong></a>
   </p>
   
   
@@ -109,21 +109,5 @@ After running the code, right-click on the array that appears in the console and
 ### Instagram UI Changed
 If Instagram updates their UI, our code might need updating. Check back for updates or contact us through GitHub if you notice the tool isn't working.
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgements
-
-- Thanks to all the users who have provided feedback and suggestions
-- Special thanks to the open source community for their contributions
-
----
-
-<div align="center">
-  <p>Made with ❤️ for the Instagram community</p>
-  <p>
-    <i>This tool is not affiliated with, authorized, maintained, sponsored or endorsed by Instagram or any of its affiliates or subsidiaries.</i>
-  </p>
-</div>
+<img src="https://capsule-render.vercel.app/api?type=soft&color=gradient&height=10&section=footer" width="1080"/>
 
