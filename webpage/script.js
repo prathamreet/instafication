@@ -17,7 +17,41 @@ function setupEventListeners() {
     // FAQ toggle functionality
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', function() {
+            // Toggle the active class on the parent element
             this.parentElement.classList.toggle('active');
+            
+            // Find the answer element
+            const answer = this.nextElementSibling;
+            
+            // Toggle the visibility of the answer with a smooth animation
+            if (this.parentElement.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.opacity = '1';
+            } else {
+                answer.style.maxHeight = '0';
+                answer.style.opacity = '0';
+            }
+        });
+    });
+    
+    // Initialize FAQ items (hide answers by default)
+    document.querySelectorAll('.faq-answer').forEach(answer => {
+        answer.style.overflow = 'hidden';
+        answer.style.maxHeight = '0';
+        answer.style.opacity = '0';
+        answer.style.transition = 'max-height 0.3s ease, opacity 0.3s ease';
+    });
+    
+    // Add hover effect to troubleshooting cards
+    document.querySelectorAll('.troubleshooting-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.1)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'var(--shadow)';
         });
     });
 }
@@ -61,25 +95,46 @@ function handleFormSubmit(e) {
 }
 
 function extractUsernames(rawData) {
-    // Try to detect if this is JSON data from console
-    if (rawData.includes('[') && rawData.includes(']')) {
+    // Clean up the input data
+    const cleanData = rawData.trim();
+    
+    // Try to detect if this is JSON data from "Copy object" in console
+    if (cleanData.startsWith('[') && cleanData.endsWith(']')) {
         try {
-            // Try to parse as JSON
-            const jsonData = JSON.parse(rawData.replace(/^[^[]*/, '').replace(/[^]]*$/, ''));
+            // Try to parse as JSON array
+            const jsonData = JSON.parse(cleanData);
             if (Array.isArray(jsonData)) {
                 return jsonData.filter(item => typeof item === 'string' && item.trim() !== '');
             }
         } catch (e) {
-            console.log('Not valid JSON, trying regex extraction');
+            console.log('Not valid JSON array, trying other methods');
         }
     }
     
-    // Fall back to regex extraction
-    const lines = rawData.split('\n');
+    // Try to detect if this is console output with array notation
+    if (cleanData.includes('[') && cleanData.includes(']')) {
+        try {
+            // Extract the array part from console output
+            const arrayMatch = cleanData.match(/\[(.*)\]/s);
+            if (arrayMatch && arrayMatch[1]) {
+                // Try to parse the extracted array
+                const jsonData = JSON.parse('[' + arrayMatch[1] + ']');
+                if (Array.isArray(jsonData)) {
+                    return jsonData.filter(item => typeof item === 'string' && item.trim() !== '');
+                }
+            }
+        } catch (e) {
+            console.log('Could not extract array from console output, trying regex extraction');
+        }
+    }
+    
+    // Fall back to regex extraction for each line
+    const lines = cleanData.split('\n');
     const values = [];
     const regex = /"([^"]*)"/;
 
     lines.forEach(line => {
+        // Skip lines that are likely not usernames
         if (!line.includes(':') && !line.includes('Follow') && !line.includes('Following')) {
             const match = regex.exec(line);
             if (match && match[1]) {
@@ -87,8 +142,21 @@ function extractUsernames(rawData) {
             }
         }
     });
-
-    return values;
+    
+    // If we found values with regex, return them
+    if (values.length > 0) {
+        return values;
+    }
+    
+    // Last resort: try to extract any word that looks like a username
+    const usernameRegex = /\b[a-zA-Z0-9._]{3,30}\b/g;
+    const possibleUsernames = cleanData.match(usernameRegex) || [];
+    
+    return possibleUsernames.filter(username => {
+        // Filter out common words that might be mistaken for usernames
+        const commonWords = ['true', 'false', 'null', 'undefined', 'console', 'log'];
+        return !commonWords.includes(username.toLowerCase());
+    });
 }
 
 function findUnfollowed(followers, followings) {

@@ -265,7 +265,31 @@ code {
 }
 
 .instructions li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.instructions li strong {
+    color: var(--secondary-color);
+}
+
+.tip-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(var(--primary-color-rgb, 88, 81, 219), 0.1);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.tip-box i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.tip-box strong {
+    color: var(--primary-color);
 }
 
 kbd {
@@ -468,11 +492,98 @@ textarea:focus {
     font-weight: 600;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
 }
 
 .faq-answer {
     color: var(--text-color);
     opacity: 0.8;
+}
+
+.faq-answer ol, .faq-answer ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer strong {
+    color: var(--primary-color);
+}
+
+/* Troubleshooting Section */
+.troubleshooting-section {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.troubleshooting-section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.troubleshooting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.troubleshooting-card {
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.troubleshooting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.troubleshooting-card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.troubleshooting-card p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.troubleshooting-card code {
+    background-color: var(--border-color);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
 }
 
 /* Footer */
