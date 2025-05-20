@@ -1,14 +1,30 @@
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-    }
+    // Apply theme before page renders to prevent flashing
+    applyTheme();
     
     // Set up event listeners
     setupEventListeners();
 });
+
+// Apply saved theme or system preference
+function applyTheme() {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    } else if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+    } else {
+        // If no saved preference, check system preference
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkMode) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+}
 
 function setupEventListeners() {
     // Form submission
@@ -370,6 +386,7 @@ function clearTextarea(id) {
 }
 
 function toggleTheme() {
+    // Simply toggle the dark-mode class
     document.body.classList.toggle('dark-mode');
     
     // Save preference
