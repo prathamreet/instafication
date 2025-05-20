@@ -4,39 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instafication</title>
+    <title>Instafication - Find Who Doesn't Follow You Back</title>
+    <meta name="description" content="Easily find Instagram users who don't follow you back with Instafication">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./media/favicon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../media/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-
     <div class="navbar">
-        <!-- <div class="title">
-            INSTAFICATION
-        </div> -->
-
         <a href="index.html" class="title">INSTAFICATION</a>
-
         <div class="nav-links">
-            <button class="toggle-theme-btn" onclick="toggleTheme()">
-                Theme
+            <button class="toggle-theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                <i class="fas fa-moon dark-icon"></i>
+                <i class="fas fa-sun light-icon"></i>
             </button>
-            <button class="github-btn" onclick="redirectToGithub()">
-                GitHub
+            <button class="github-btn" onclick="redirectToGithub()" aria-label="View on GitHub">
+                <i class="fab fa-github"></i> GitHub
             </button>
         </div>
-
     </div>
 
-    <div class="copyit">
+    <div class="container">
+        <div class="intro-section">
+            <h1>Find Who Doesn't Follow You Back on Instagram</h1>
+            <p class="intro-text">Instafication helps you identify Instagram users who don't follow you back in 3 simple steps.</p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Copy the Code</h3>
+                        <p>Copy the code below and paste it in your browser console while on Instagram</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Paste the Results</h3>
+                        <p>Paste the results from your followers and following lists below</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Your Results</h3>
+                        <p>Click "Check Unfollowers" to see who doesn't follow you back</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="copy" id="ER-copy">
-
-            <div class="code-container">
-                <pre>
-                    <code id="code-snippet">
-function extractUsernames() {
+        <div class="code-section">
+            <h2>Step 1: Copy This Code</h2>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('followers')">For Followers</button>
+                <button class="tab-btn" onclick="switchTab('following')">For Following</button>
+            </div>
+            
+            <div class="code-container" id="followers-code">
+                <pre><code id="code-snippet-followers">function extractUsernames() {
     const usernames = [];
     const elements = document.querySelectorAll('._ap3a, ._aaco, ._aacw, ._aacx, ._aad7, ._aade');
     elements.forEach(element => {
@@ -46,79 +73,97 @@ function extractUsernames() {
     return usernames;
 }
 const followersUsernames = extractUsernames();
-console.log(followersUsernames);                        
-                    </code>
-                </pre>
-                <button class="copy-button" onclick="copyCode()">Copy</button>
+console.log(followersUsernames);</code></pre>
+                <button class="copy-button" onclick="copyCode('followers')">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
             </div>
-            <div class="texts">Code-snippet to paste in console</div>
-
-        </div>
-
-        <!-- <div class="copy" id="IN-copy">
-            <div class="texts">Paste Your Raw followings Data</div>
             
-            <div class="code-container">
-                <pre>
-                    <code id="code-snippet">
-function extractUsernames() {
+            <div class="code-container hidden" id="following-code">
+                <pre><code id="code-snippet-following">function extractUsernames() {
     const usernames = [];
     const elements = document.querySelectorAll('._ap3a, ._aaco, ._aacw, ._aacx, ._aad7, ._aade');
     elements.forEach(element => {
-        const username = element.textContent.trim();
+        const username = element.textContent.trim(); 
         usernames.push(username);
     });
     return usernames;
 }
-const followersUsernames = extractUsernames();
-console.log(followersUsernames);    
-                    </code>
-                </pre>
-                <button class="copy-button" onclick="copyCode()">Copy</button>
+const followingUsernames = extractUsernames();
+console.log(followingUsernames);</code></pre>
+                <button class="copy-button" onclick="copyCode('following')">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
             </div>
+            
+            <div class="instructions">
+                <h3>How to use the code:</h3>
+                <ol>
+                    <li>Go to your Instagram profile and open your followers list</li>
+                    <li>Press <kbd>F12</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> to open developer tools</li>
+                    <li>Click on "Console" tab</li>
+                    <li>Type <code>allow pasting</code> and press Enter</li>
+                    <li>Paste the code above and press Enter</li>
+                    <li>Copy the results and paste below</li>
+                    <li>Repeat for your following list</li>
+                </ol>
+            </div>
+        </div>
 
-        </div> -->
+        <form id="input-form">
+            <h2>Step 2: Paste Your Data</h2>
+            <div class="textareaMain">
+                <div class="follow">
+                    <label for="followers-text">Followers List</label>
+                    <textarea id="followers-text" class="textarea" rows="10" placeholder="Paste your followers data here..."></textarea>
+                    <div class="clear-btn" onclick="clearTextarea('followers-text')">
+                        <i class="fas fa-times"></i> Clear
+                    </div>
+                </div>
+                <div class="follow">
+                    <label for="followings-text">Following List</label>
+                    <textarea id="followings-text" class="textarea" rows="10" placeholder="Paste your following data here..."></textarea>
+                    <div class="clear-btn" onclick="clearTextarea('followings-text')">
+                        <i class="fas fa-times"></i> Clear
+                    </div>
+                </div>
+            </div>
+            <div class="buttonarea">
+                <button type="submit" class="btn">
+                    <i class="fas fa-search"></i> Check Unfollowers
+                </button>
+            </div>
+        </form>
 
+        <div class="result-container">
+            <h2>Step 3: Your Results</h2>
+            <div class="result-stats" id="result-stats"></div>
+            <div id="result" class="result-grid"></div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">Is this tool safe to use?</div>
+                <div class="faq-answer">Yes, Instafication is completely safe. The tool runs entirely in your browser and doesn't store any of your Instagram data. Your information never leaves your computer.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Why do I need to use the console?</div>
+                <div class="faq-answer">Instagram doesn't provide a public API for this kind of data. The console code simply extracts the usernames that are already visible on your screen.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I need to log in to use this tool?</div>
+                <div class="faq-answer">No login is required for Instafication itself. You just need to be logged into your Instagram account when you run the console code.</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Instafication &copy; 2025 | <a href="https://github.com/prathamreet/instafication" target="_blank">GitHub</a></p>
+            <p class="disclaimer">This tool is not affiliated with, authorized, maintained, sponsored or endorsed by Instagram or any of its affiliates or subsidiaries.</p>
+        </footer>
     </div>
-
-    <form id="input-form">
-
-        <div class="textareaMain" id="input-form">
-
-            <div class="follow">
-                <textarea id="followers-text" class="textarea is-danger" rows="10" placeholder="">
-                </textarea>
-                <div class="texts">Paste Your Raw followers Data</div>
-            </div>
-            <div class="follow">
-                <textarea id="followings-text" class="textarea is-danger" rows="10" placeholder="">
-                </textarea>
-                <div class="texts">Paste Your Raw followings Data</div>
-            </div>
-
-        </div>
-        <div class="buttonarea">
-            <button type="submit" class="btn">Check Unfollowers</button>
-        </div>
-    </form>
-
-    <div id="result"></div>
 
     <script src="script.js"></script>
 </body>
 
 </html>
-
-<!-- 
-        <h1 class="Header">Instafication</h1>
-        <form id="input-form">
-            <label for="followers-text">Paste Followers List:</label>
-            <textarea id="followers-text" rows="10" placeholder="Paste your followers list here..."></textarea><br><br>
-            <label for="followings-text">Paste Followings List:</label>
-            <textarea id="followings-text" rows="10"
-                placeholder="Paste your followings list here..."></textarea><br><br>
-            <button type="submit">Check Unfollowers</button>
-        </form>
-        <div id="result"></div>
-    <script src="all.js"></script>
- -->
