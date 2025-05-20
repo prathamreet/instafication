@@ -2,9 +2,11 @@
 
 :root {
     --primary-color: #5851DB;
+    --primary-color-rgb: 88, 81, 219;
     --secondary-color: #E1306C;
     --accent-color: #FCAF45;
     --text-color: #262626;
+    --text-color-light: #737373;
     --bg-color: #FAFAFA;
     --card-bg: #FFFFFF;
     --border-color: #DBDBDB;
@@ -18,9 +20,11 @@
 /* Dark mode variables */
 .dark-mode {
     --primary-color: #8A3AB9;
+    --primary-color-rgb: 138, 58, 185;
     --secondary-color: #E1306C;
     --accent-color: #FCAF45;
     --text-color: #F5F5F5;
+    --text-color-light: #AAAAAA;
     --bg-color: #121212;
     --card-bg: #1E1E1E;
     --border-color: #333333;
@@ -354,6 +358,44 @@ code {
 
 .instructions li strong {
     color: var(--secondary-color);
+}
+
+/* Tutorial Image Styles */
+.tutorial-image-container {
+    margin: 2rem 0;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.tutorial-image-container h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.tutorial-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1rem;
+    border: 1px solid rgba(var(--primary-color-rgb, 88, 81, 219), 0.3);
+}
+
+.image-caption {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+}
+
+/* Dark mode adjustments for tutorial image */
+.dark-mode .tutorial-image {
+    border-color: rgba(var(--primary-color-rgb, 88, 81, 219), 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .tip-box {
